@@ -1,0 +1,6 @@
+def fetch_poster(title):
+    url = f"https://api.themoviedb.org/3/search/movie?api_key=20c06a4208847b7e85ff3eac06cc3075&query={title}"
+    response = requests.get(url).json()
+    poster_path = response['results'][0]['poster_path']
+    full_path = f"https://image.tmdb.org/t/p/w500{poster_path}"
+    return full_path
